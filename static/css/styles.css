@@ -33,14 +33,30 @@ padding: 20px;
 
 .inside-cont{
   background-color: white;
-  padding: 30px;
+  padding: 15px;
   margin: 30px;
 }
 
 .image{
+  display: flex;
+  width: 680px;
+  margin: 10px;
+
+}
+
+.image-lists{
+  display: flex;
+  width: 300px;
+  margin: 10px;
+  padding-bottom: 20px;;
+}
+
+
+.image-product{
   width: 300px;
   margin: 15px;
 }
+
 
 .inside-cont{
   display: flex;
