@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <title>{% block title %}Market{% endblock %}</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li class="navigator"><a href="{% url 'productslist' %}">Products</a></li>
+      <li class="navigator"><a href="{% url 'customers' %}">Customers</a></li>
+    </ul>
+  </nav>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

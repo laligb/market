@@ -1,28 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
 {% load static %}
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title</title>
-</head>
-<body>
-
-  <div class="container">
-
+<div class="container">
     <img src="{% static 'images/food1.png' %}" alt="Food" class="image">
-
     <div class="row">
       <h2> Your name: {{first_name}}, {{last_name}}</h2>
-
     </div>
-
   </div>
-
-</body>
-</html>
+{% endblock %}

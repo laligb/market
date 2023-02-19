@@ -46,3 +46,31 @@ padding: 20px;
   display: flex;
   justify-content: space-around;
 }
+
+.navigator{
+  display: inline-block;
+  padding: 10px;
+  font-weight: bold;
+}
+
+nav{
+  background-color: rgb(9, 9, 67);
+  width: 700px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+nav a{
+  color:gainsboro;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navigator:hover {
+  background-color:blueviolet;
+}
+
+nav a:hover{
+  color: white;
+}
