@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-
-# Create your views here.
-from django.http import HttpResponse
+from .models import Product
 
 MY_ITEMS = [
     {'id': 1, 'name': 'bread', 'price': 0.5, 'quantity': 20},
@@ -10,19 +8,28 @@ MY_ITEMS = [
 ]
 
 def productslistView(request):
-    if request.method == 'POST':
-        product_id = request.POST.get('product_id')
-        # Handle the button click event here
-        return redirect('product', id=product_id)
-    context = {'MY_ITEMS': MY_ITEMS}
+    products = Product.objects.all()
+    print(f"Product's items {products}")
+    print(products.count())
+    context = {
+        'object_list': products,
+    }
     template_name = "productslist.html"
     return render(request, template_name, context)
 
 
+# def productView(request, id):
+#     if request.method == 'POST':
+#         return redirect('productslist')
+#     product = next((item for item in MY_ITEMS if item['id'] == id), None)
+#     context = {'name': product['name'].upper(), 'price': product['price'], 'quantity': product['quantity']}
+#     template_name = "product.html"
+#     return render(request, template_name, context)
+
 def productView(request, id):
-    if request.method == 'POST':
-        return redirect('productslist')
-    product = next((item for item in MY_ITEMS if item['id'] == id), None)
-    context = {'name': product['name'].upper(), 'price': product['price'], 'quantity': product['quantity']}
+    product = Product.objects.get(id=id)
     template_name = "product.html"
+    context = {
+        'object':product
+    }
     return render(request, template_name, context)

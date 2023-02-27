@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'products',
     'customers',
+    'django_seed',
 ]
 
 MIDDLEWARE = [

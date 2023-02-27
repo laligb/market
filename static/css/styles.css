@@ -1,26 +1,44 @@
-body {
-  background-color:rgb(254, 254, 254);
+*{
+  margin:0;
+  padding:0
 }
+
+body{
+  background-color: rgb(9, 9, 67);
+}
+
 
 h2, h1 {
   color: rgb(9, 9, 67);
   margin: 15px;
 }
 
+
+header{
+
+  width: 100%;
+}
+
 .container{
-background-color: rgb(159, 132, 206);
-width: 700px;
-padding: 20px;
+  background-color: white;
+
+  width: 100%;
+  min-height: 900px;
 
 }
 
 .row{
   display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  margin: 10px;
+  justify-content:space-between;
+  padding: 5px;
+  margin: 5px;
+  border-color: rgb(31, 29, 29);
+}
 
-  background-color: white;
+.table{
+  background-color:aliceblue;
+  max-width: 700px;
+  padding: 20px;
 }
 
 .button{
@@ -38,7 +56,6 @@ padding: 20px;
 }
 
 .image{
-  display: flex;
   width: 680px;
   margin: 10px;
 
@@ -71,7 +88,7 @@ padding: 20px;
 
 nav{
   background-color: rgb(9, 9, 67);
-  width: 700px;
+  width: 100%;
   padding-right: 40px;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -89,4 +106,17 @@ nav a{
 
 nav a:hover{
   color: white;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: rgb(9, 9, 67);
+  height:100px;
+}
+
+footer div{
+  margin-top: 50px;
+  color: aliceblue;
 }

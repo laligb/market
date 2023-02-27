@@ -10,7 +10,7 @@
 <body>
   <nav>
     <ul>
-      <li class="navigator"><a href="{% url 'productslist' %}">Products</a></li>
+      <li class="navigator"><a href="{% url 'product-list' %}">Products</a></li>
       <li class="navigator"><a href="{% url 'customers' %}">Customers</a></li>
     </ul>
   </nav>
@@ -18,5 +18,8 @@
     {% block content %}
     {% endblock %}
   </main>
+  <footer>
+    <div>@ Django SCSA</div>
+  </footer>
 </body>
 </html>

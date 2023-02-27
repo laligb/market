@@ -6,22 +6,41 @@
 {% load static %}
 
 
-  <div class="container">
-    <h1>We have the best quality market, choose your product and enjoy! </h1>
-    <img src="{% static 'images/food-g.png' %}" alt="Food" class="image-lists">
-    {% for item in MY_ITEMS %}
-    <div class="row">
-      <h2>{{ item.name }}</h2>
-      <p>Price: {{ item.price }}</p>
-      <p>Quantity: {{ item.quantity }}</p>
-      <form method="post" action="{% url 'productslist' %}">
-        {% csrf_token %}
-        <input type="hidden" name="product_id" value="{{ item.id }}">
-        <button type="submit" class="button all">Open product</button>
-      </form>
+    <div class="container">
+      <header>
+        <h1>We have the best quality market, choose your product and enjoy! </h1>
+        <img src="{% static 'images/food-g.png' %}" alt="Food" class="image-lists">
+      <header>
+      <div class="table">
+
+        <div class="row">
+          <div class="col"><h4>ID</h4></div>
+          <div class="col"><h4>Name</h4></div>
+          <div class="col"><h4>Price</h4></div>
+          <div class="col"><h4>Quantity</h4></div>
+          <div class="col">
+              <a href="{% url 'product-list' %}">Product List</a>
+          </div>
+        </div>
+
+        {% for product in object_list %}
+        <div class="row">
+          <div class="col"><p>{{product.id}}</p></div>
+          <div class="col"><p>{{product.name}}</p></div>
+          <div class="col"><p>{{product.price }}</p></div>
+          <div class="col"><p>{{product.quantity}}</p></div>
+          <div class="col">
+            <a href="{% url 'product' product.id %}">Open product</a>
+          </div>
+        </div>
+
+      {% endfor %}
     </div>
-    {% endfor %}
-    <p>Still did not find your product? Don't worry. You can write us! </p>
+      <br>
+      <br>
+      <br>
+
+      <p>Still did not find your product? Don't worry. You can write us! </p>
   </div>
 
   {% endblock %}
