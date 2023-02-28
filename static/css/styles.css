@@ -20,10 +20,12 @@ header{
 }
 
 .container{
+  display: flex;
+  justify-content: space-between;
   background-color: white;
 
   width: 100%;
-  min-height: 900px;
+  padding-left: 30px;
 
 }
 
@@ -37,7 +39,7 @@ header{
 
 .table{
   background-color:aliceblue;
-  max-width: 700px;
+
   padding: 20px;
 }
 
@@ -106,6 +108,12 @@ nav a{
 
 nav a:hover{
   color: white;
+}
+
+.sider{
+  width: 20%;
+  padding: 50px;
+  background-color: rgb(228, 222, 233);
 }
 
 footer{

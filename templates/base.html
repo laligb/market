@@ -14,12 +14,18 @@
       <li class="navigator"><a href="{% url 'customers' %}">Customers</a></li>
     </ul>
   </nav>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+  <div class="container">
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <div class="sider">
+      <h4>Log in</h4>
+    </div>
+  </div>
   <footer>
     <div>@ Django SCSA</div>
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
