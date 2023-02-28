@@ -6,24 +6,28 @@
 {% load static %}
 
 
-  <div class="container">
-    <h1>Enjoy with our delicious {{name}} !</h1>
-    <div class="inside-cont">
+
+    <h1></h1>
+
+    <header>
+      <h1>Enjoy with our delicious {{object.name}} ! </h1>
+      <img src="{% static 'images/food2.png' %}" alt="Food" class="image-lists">
+    <header>
+    <div class="">
+
       <div class="block">
-      <h1>{{ name }}</h1>
-      <h2>Price: {{ price }}</h2>
-      <h2>Quantity: {{ quantity }}</h2>
+      <h1>{{ object.name }}</h1>
+      <h2>Price: {{ object.price }}</h2>
+      <h2>Quantity: {{ object.quantity }}</h2>
 
       <form method="post" action="">
         {% csrf_token %}
         <button type="submit" class="button">All Products</button>
       </form>
     </div>
-    <div class="block">
-      <img src="{% static 'images/food.png' %}" alt="Food" class="image-product">
-    </div>
+
     </div>
 
-  </div>
+
 
   {% endblock %}

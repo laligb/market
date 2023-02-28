@@ -6,9 +6,14 @@
 {% block content %}
 {% load static %}
 
-    <img src="{% static 'images/food2.png' %}" alt="Food" class="image">
-    <div class="row">
-      <h2> Your name: {{first_name}}, {{last_name}}</h2>
-    </div>
+
+  <header>
+    <h1>Customers </h1>
+    <img src="{% static 'images/girl.png' %}" alt="Food" class="image-lists">
+  <header>
+
+  <div class="row">
+    <h2> Your name: {{first_name}}, {{last_name}}</h2>
+  </div>
 
 {% endblock %}
