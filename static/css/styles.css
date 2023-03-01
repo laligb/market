@@ -150,3 +150,7 @@ footer div{
   background-color: darkblue;
   color: white;
 }
+
+.form-item{
+  margin: 20px;
+}

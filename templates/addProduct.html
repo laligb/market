@@ -7,16 +7,16 @@
 
 
   <div class="">
-    <h1>Enjoy with our delicious {{object.name}} !</h1>
+    <h1>Add your product here! </h1>
     <div class="inside-cont">
       <div class="block">
     <form method="post" action="{% url 'add-product' %}">
         {% csrf_token %}
 
 
-      <h1>Name: {{ form.name }}</h1>
-      <h2>Price: {{ form.price }}</h2>
-      <h2>Quantity: {{ form.quantity }}</h2>
+      <div class="form-item">Name: {{ form.name }}</div>
+      <div class="form-item">Price: {{ form.price }}</div>
+      <div class="form-item">Quantity: {{ form.quantity }}</div>
 
 
         <button type="submit" class="button">Submit Products</button>
