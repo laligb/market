@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.shortcuts import render, redirect
+
+def index(request):
+    return render(request, 'index.html')
+
+def redirect_to_index(request):
+    return redirect('index')
 
 urlpatterns = [
+    path('', index, name="index"),
+    path('home/', redirect_to_index),
     path('home/', include('products.urls')),
     path('customers/', include('customers.urls')),
     path('admin/', admin.site.urls)

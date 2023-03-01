@@ -21,8 +21,7 @@ def validate_customers(value):
     if value > timezone.now().date():
         raise ValidationError('Birth date cannot be in the future.')
 
-    if value - timezone.now().date() < 12:
-        raise ValidationError('Age cannot be less than 12 years old.')
+
 
 class CustomerModel(models.Model):
     first_name = models.CharField(max_length=30)

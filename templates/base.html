@@ -4,14 +4,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/fav.ico' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
   <title>{% block title %}Market{% endblock %}</title>
 </head>
 <body>
   <nav>
     <ul>
+      <li class="navigator"><a href="{% url 'index' %}">Home</a></li>
       <li class="navigator"><a href="{% url 'product-list' %}">Products</a></li>
-      <li class="navigator"><a href="{% url 'customers' %}">Customers</a></li>
+      <li class="navigator"><a href="{% url 'customer-list' %}">Customers</a></li>
     </ul>
   </nav>
 

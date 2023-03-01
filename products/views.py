@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Product
+from .forms import ProductForm
 
 MY_ITEMS = [
     {'id': 1, 'name': 'bread', 'price': 0.5, 'quantity': 20},
@@ -33,3 +34,47 @@ def productView(request, id):
         'object':product
     }
     return render(request, template_name, context)
+
+def addProductView(request):
+    template_name = "addProduct.html"
+    form = ProductForm()
+
+    if request.POST:
+        form = ProductForm(request.POST)
+        print('post test--------')
+
+        if form.is_valid():
+            form.save()
+            return redirect('product-list')
+        else:
+            print(form.errors)
+
+    context = {
+        'form': form
+    }
+    return render(request,template_name,context)
+
+def editProductView(request,id):
+
+    template_name = 'editProduct.html'
+    product = Product.objects.get(id=id)
+
+    form = ProductForm(instance=product)
+    if request.POST:
+        form = ProductForm(request.POST,instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('product-list')
+
+    context = {
+    'form':form,
+        'product_id':product.id,
+        'product': product,
+    }
+    return render(request,template_name,context)
+
+def deleteProductView(request, id):
+    product = Product.objects.get(id=id)
+    if request.POST:
+        product.delete()
+    return redirect('product-list')

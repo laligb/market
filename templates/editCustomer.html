@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+
+    <header>
+      <h1>Edit Customer - {{customer.first_name}}, {{customer.last_name}} </h1>
+      <img src="{% static 'images/food2.png' %}" alt="Food" class="image-lists">
+    <header>
+
+
+
+    <form method="post" action="{% url 'edit-customer' customer_id %}">
+        {% csrf_token %}
+
+      <h2>Name: {{ form.first_name }}</h2>
+      <h2>Lastname: {{ form.last_name }}</h2>
+      <h2>Date of Birth: {{ form.birth_date }}</h2>
+      <h2>Status: {{ form.is_active }}</h2>
+      <h2>Email: {{ form.email }}</h2>
+
+
+
+        <button type="submit" class="button">Submit changes</button>
+      </form>
+
+
+
+
+
+
+  {% endblock %}

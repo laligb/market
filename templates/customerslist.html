@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+  <header>
+    <h1>Customers </h1>
+    <img src="{% static 'images/girl.png' %}" alt="Food" class="image-lists">
+  <header>
+  <div class="table">
+    <div class="row">
+      <div class="col"><h4>ID</h4></div>
+      <div class="col"><h4>First Name</h4></div>
+      <div class="col"><h4>Last Name</h4></div>
+      <div class="col"><h4>Birth Date</h4></div>
+      <div class="col"><h4>Status</h4></div>
+      <div class="col"><h4>Email</h4></div>
+      <div class="col"><h4>Show</h4></div>
+      <div class="col"><h4>Edit</h4></div>
+      <div class="col"><h4>Delete</h4></div>
+    </div>
+
+    {% for customer in customer_list %}
+    <div class="row">
+      <div class="col"><p>{{customer.id}}</p></div>
+      <div class="col"><p>{{customer.first_name}}</p></div>
+      <div class="col"><p>{{customer.last_name }}</p></div>
+      <div class="col"><p>{{customer.birth_date}}</p></div>
+      <div class="col"><p>{{customer.is_active}}</p></div>
+      <div class="col"><p>{{customer.email}}</p></div>
+      <div class="col">
+        <a href="{% url 'customer' customer.id %}">Open customer</a>
+    </div>
+    <div class="col">
+      <a href="{% url 'edit-customer' customer.id %}" >Edit customer</a>
+    </div>
+    <div class="col">
+        <form method="POST" action="{% url 'delete-customer' customer.id %}" id="delete-form">
+          {%csrf_token%}
+          <button class="edit-btn" onclick="return ConfirmDelete()">Delete</button>
+        </form>
+    </div>
+  </div>
+
+  {% endfor %}
+  <a href="{% url 'add-customer' %}">add customer</a>
+
+{% endblock %}
