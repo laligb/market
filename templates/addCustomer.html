@@ -7,24 +7,28 @@
 
 
   <div class="">
-    <h1>Enjoy with our delicious {{object.name}} !</h1>
+    <header>
+      <h1> Create New Customer </h1>
+      <img src="{% static 'images/girl.png' %}" alt="Food" class="image-lists">
+    <header>
+
     <div class="inside-cont">
       <div class="block">
     <form method="post" action="{% url 'add-customer' %}">
         {% csrf_token %}
 
 
-      <h1>Name: {{ form.name }}</h1>
-      <h2>Price: {{ form.price }}</h2>
-      <h2>Quantity: {{ form.quantity }}</h2>
+        <div class="form-item">Name: {{ form.first_name }}</div>
+        <div class="form-item">Lastname: {{ form.last_name }}</div>
+        <div class="form-item">Date of Birth: {{ form.birth_date }}</div>
+        <div class="form-item">Status: {{ form.is_active }}</div>
+        <div class="form-item">Email: {{ form.email }}</div>
 
 
-        <button type="submit" class="button">Submit customers</button>
+        <button type="submit" class="button">Create customer</button>
       </form>
     </div>
-    <div class="block">
-      <img src="{% static 'images/food.png' %}" alt="Food" class="image-customer">
-    </div>
+
     </div>
 
   </div>
