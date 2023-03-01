@@ -1,5 +1,6 @@
 from django import forms
 from .models import CustomerModel
+from django.forms import DateInput
 
 class CustomerForm(forms.ModelForm):
     #name = forms.CharField()
@@ -7,3 +8,7 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model=CustomerModel
         fields='__all__'
+
+        widgets = {
+            'birth_date': DateInput(attrs={'type': 'date'}),
+        }

@@ -22,7 +22,6 @@ def validate_customers(value):
         raise ValidationError('Birth date cannot be in the future.')
 
 
-
 class CustomerModel(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
