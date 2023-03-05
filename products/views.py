@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Product
 from .forms import ProductForm
+from .serializers import ProductSerializer
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 MY_ITEMS = [
     {'id': 1, 'name': 'bread', 'price': 0.5, 'quantity': 20},
     {'id': 2,'name': 'milk', 'price': 1.0, 'quantity': 10},
     {'id': 3,'name': 'wine', 'price': 10.0, 'quantity': 5},
 ]
+def index(request):
+    return render(request, 'frontend/build/index.html')
 
 def productslistView(request):
     products = Product.objects.all()
@@ -19,15 +25,9 @@ def productslistView(request):
     return render(request, template_name, context)
 
 
-# def productView(request, id):
-#     if request.method == 'POST':
-#         return redirect('productslist')
-#     product = next((item for item in MY_ITEMS if item['id'] == id), None)
-#     context = {'name': product['name'].upper(), 'price': product['price'], 'quantity': product['quantity']}
-#     template_name = "product.html"
-#     return render(request, template_name, context)
 
 def productView(request, id):
+
     product = Product.objects.get(id=id)
     template_name = "product.html"
     context = {
@@ -78,3 +78,16 @@ def deleteProductView(request, id):
     if request.POST:
         product.delete()
     return redirect('product-list')
+
+
+# Let's create view of serializer for API
+# http://localhost:8000/api/products/
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    @action(detail=False, methods=['get'])
+    def custom_action(self, request):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

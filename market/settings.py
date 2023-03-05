@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'products',
     'customers',
     'django_seed',
+    'corsheaders',
+    'rest_framework',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +56,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000'
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'market.urls'
 
