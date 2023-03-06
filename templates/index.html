@@ -4,9 +4,27 @@
 
 {% block content %}
 {% load static %}
-
+{% load bootstrap5 %}
 <header>
   <h1>We have the best quality market, choose your product and enjoy! </h1>
   <img src="{% static 'images/food-g.png' %}" alt="Food" class="image-lists">
 <header>
+
+
+
+
+<!-- {# Display a form #}
+<form action="/url/to/submit/" method="post" class="form">
+  {% csrf_token %}
+
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  {% endbuttons %}
+</form>  -->
+
+
+
+  </div>
 {% endblock %}

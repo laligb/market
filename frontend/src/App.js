@@ -10,6 +10,12 @@ function App() {
     <div className="App">
       <div className="">
       <header className="">
+
+
+      <div className="navbar navbar-expand-lg" style={{ backgroundColor: '#4B0082', color: 'white'}}>
+          <Nav/>
+        </div>
+
       <logo className="nav-items">
           <Link to="/"><img src={require('./logo.png')} className="logo" alt="logo" /></Link>
       </logo>
@@ -22,10 +28,6 @@ function App() {
 
         <div className="col-lg-6">
 
-        </div>
-
-        <div className="navbar navbar-expand-lg" style={{ backgroundColor: '#4B0082', color: 'white'}}>
-          <Nav/>
         </div>
 
         {/* <div className="socials nav-items col-lg-3">

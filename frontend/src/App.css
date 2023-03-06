@@ -1,5 +1,6 @@
  .container {
   text-align: center;
+  background-color: seashell;
 }
 
 .logo {
@@ -11,7 +12,6 @@
 
 .navigator{
   display: inline-block;
-  padding: 10px;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -20,6 +20,13 @@
   background-color:blueviolet;
 }
 
-nav a:hover{
+.navigator a{
+  color: white;
+  text-decoration: none;
+  font-size: larger;
+  padding: 10px;
+}
+
+.navigator a:hover{
   color: white;
 }

@@ -12,16 +12,16 @@
     <img src="{% static 'images/girl.png' %}" alt="Food" class="image-lists">
   <header>
   <div class="table">
-    <div class="row">
-      <div class="col"><h4>ID</h4></div>
-      <div class="col"><h4>First Name</h4></div>
-      <div class="col"><h4>Last Name</h4></div>
-      <div class="col"><h4>Birth Date</h4></div>
-      <div class="col"><h4>Status</h4></div>
-      <div class="col"><h4>Email</h4></div>
-      <div class="col"><h4>Show</h4></div>
-      <div class="col"><h4>Edit</h4></div>
-      <div class="col"><h4>Delete</h4></div>
+    <div class="row1">
+      <div class="col"><h5>ID</h5></div>
+      <div class="col"><h5>First Name</h5></div>
+      <div class="col"><h5>Last Name</h5></div>
+      <div class="col"><h5>Birth Date</h5></div>
+      <div class="col"><h5>Status</h5></div>
+      <div class="col"><h5>Email</h5></div>
+      <div class="col"><h5>Show</h5></div>
+      <div class="col"><h5>Edit</h5></div>
+      <div class="col"><h5>Delete</h5></div>
     </div>
 
     {% for customer in customer_list %}
@@ -33,10 +33,10 @@
       <div class="col"><p>{{customer.is_active}}</p></div>
       <div class="col"><p>{{customer.email}}</p></div>
       <div class="col">
-        <a href="{% url 'customer' customer.id %}">Open customer</a>
+        <a href="{% url 'customer' customer.id %}">Open</a>
     </div>
     <div class="col">
-      <a href="{% url 'edit-customer' customer.id %}" >Edit customer</a>
+      <a href="{% url 'edit-customer' customer.id %}" >Edit</a>
     </div>
     <div class="col">
         <form method="POST" action="{% url 'delete-customer' customer.id %}" id="delete-form">
@@ -47,6 +47,6 @@
   </div>
 
   {% endfor %}
-  <a href="{% url 'add-customer' %}">add customer</a>
+  <a href="{% url 'add-customer' %}">Add customer</a>
 
 {% endblock %}

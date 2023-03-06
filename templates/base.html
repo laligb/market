@@ -1,4 +1,22 @@
 {% load static %}
+{% load bootstrap5 %}
+
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!-- <script src="{% static 'js/bundle.js' %}"></script>
+<div id="app"></div>
+<script>
+  ReactDOM.render(
+    React.createElement(App.default),
+    document.getElementById('app')
+  );
+</script> -->
 
 <!DOCTYPE html>
 <html>
@@ -9,35 +27,33 @@
   <title>{% block title %}Market{% endblock %}</title>
 </head>
 <body>
-  <nav>
+  <nav class="row">
+    <div class="col-lg-11 col-md-6">
     <ul>
       <li class="navigator"><a href="{% url 'index' %}">Home</a></li>
       <li class="navigator"><a href="{% url 'product-list' %}">Products</a></li>
       <li class="navigator"><a href="{% url 'customer-list' %}">Customers</a></li>
     </ul>
+   </div>
+
+    <div class="dropdown col-lg-1 col-md-1">
+      <button class="btn btn-dark dropdown-toggle dropdown-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        😊
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Log in</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+
   </nav>
 
   <div class="container">
-    <main>
+    <main class="container1">
       {% block content %}
       {% endblock %}
     </main>
-
-    <div class="sider">
-      <div class="form-login">
-        Log in
-        <form action="" method="post">
-          <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="username" required>
-            <label>Password : </label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit">Login</button>
-            <input type="checkbox" checked="checked"> Remember me
-            <button type="button" class="cancelbtn"> Cancel</button>
-            Forgot <a href="#"> password? </a>
-        </form>
-      </div>
-    </div>
 
   </div>
 
