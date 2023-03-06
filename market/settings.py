@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'frontend',
     'bootstrap5',
+    'registration',
 ]
+AUTH_USER_MODEL ='registration.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
