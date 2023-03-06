@@ -53,6 +53,18 @@
   <div class="container">
     <main class="container1">
       {% block content %}
+
+        {% if messages %}
+        <div class="alert alert-warning newerrorhello" role="alert">
+          <ul class="messages">
+
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+          </ul>
+
+        </div>
+        {% endif %}
       {% endblock %}
     </main>
 
@@ -61,6 +73,8 @@
   <footer>
     <div>@ Django SCSA</div>
   </footer>
+
+
 
   <script src="{% static 'js/main.js' %}"></script>
 </body>
