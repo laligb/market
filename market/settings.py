@@ -146,3 +146,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [BASE_DIR / 'static']
 # STATICFILES_DIRS = [BASE_DIR / 'frontend/build/static/']
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'cssa.django@gmail.com'
+EMAIL_HOST_PASSWORD = 'ylmvvzzbqqfxbocj'
